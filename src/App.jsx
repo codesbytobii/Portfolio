@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -27,14 +27,15 @@ function Layout() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/"              element={<Home />} />
-          <Route path="/services"      element={<Services />} />
-          <Route path="/work"          element={<Work />} />
-          <Route path="/work/:slug"    element={<WorkSingle />} />
-          <Route path="/pricing"       element={<Pricing />} />
-          <Route path="/blog"          element={<Blog />} />
-          <Route path="/blog/:slug"    element={<BlogSingle />} />
-          <Route path="*"              element={<NotFound />} />
+          {/* <Route path="/Portfolio" element={<Navigate to="/" replace />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:slug" element={<WorkSingle />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogSingle />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
